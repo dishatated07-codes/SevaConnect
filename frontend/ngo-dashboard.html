@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | NGO Dashboard</title>
+    <meta
+      name="description"
+      content="NGO dashboard for SevaConnect."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="dashboard-page ngo-dashboard-page">
+    <div class="dashboard-shell">
+      <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="false">
+        â˜°
+      </button>
+
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <div class="sidebar-brand">
+          <a href="index.html" class="logo" aria-label="SevaConnect home">
+            <span class="logo-mark">S</span>
+            <span>SevaConnect</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main dashboard navigation">
+          <ul>
+            <li><a href="#dashboard-main" class="nav-item active">Dashboard</a></li>
+            <li><a href="#active-events-title" class="nav-item">Manage Events</a></li>
+            <li><a href="#applications-title" class="nav-item">Volunteer Applications</a></li>
+            <li><a href="#reviews-title" class="nav-item">Event Ratings</a></li>
+            <li><a href="#ngo-impact" class="nav-item">Impact Reports</a></li>
+            <li><a href="#notifications-title" class="nav-item">Notifications</a></li>
+            <li><a href="login.html" class="nav-item" data-logout>Logout</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main" id="dashboard-main">
+        <header class="dashboard-header">
+          <div>
+            <p class="eyebrow eyebrow-dashboard">NGO Portal</p>
+            <h1>Welcome back, <span data-user-name>your profile</span>!</h1>
+            <p class="welcome-subtitle">Manage your events, connect with volunteers, and make a difference.</p>
+            <p class="profile-summary">Organization city: <span data-user-city>Loading...</span></p>
+          </div>
+          <a href="#event-form" class="btn btn-primary btn-small" data-open-event-form>Create Event</a>
+        </header>
+
+        <section class="stats-grid dashboard-stats" aria-label="NGO statistics">
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-green" data-dashboard-stat="totalEvents">—</div>
+            <div>
+              <h3>Total Events</h3>
+              <p data-dashboard-detail="totalEvents">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-blue" data-dashboard-stat="activeEvents">—</div>
+            <div>
+              <h3>Active Events</h3>
+              <p data-dashboard-detail="activeEvents">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-orange" data-dashboard-stat="totalApplications">—</div>
+            <div>
+              <h3>Total Applications</h3>
+              <p data-dashboard-detail="totalApplications">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-orange" data-dashboard-stat="pendingApplications">—</div>
+            <div>
+              <h3>Pending Applications</h3>
+              <p data-dashboard-detail="pendingApplications">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-purple" data-dashboard-stat="approvedVolunteers">—</div>
+            <div>
+              <h3>Approved Volunteers</h3>
+              <p data-dashboard-detail="approvedVolunteers">Loading...</p>
+            </div>
+          </article>
+          <article class="stat-card"><div class="stat-icon stat-icon-green" data-dashboard-stat="eventsAwaitingAttendance">—</div><div><h3>Events Awaiting Attendance</h3><p data-dashboard-detail="eventsAwaitingAttendance">Loading...</p></div></article>
+          <article class="stat-card"><div class="stat-icon stat-icon-blue" data-dashboard-stat="volunteersPresent">—</div><div><h3>Volunteers Present</h3><p data-dashboard-detail="volunteersPresent">Loading...</p></div></article>
+          <article class="stat-card"><div class="stat-icon stat-icon-orange" data-dashboard-stat="completedVolunteerHours">—</div><div><h3>Completed Volunteer Hours</h3><p data-dashboard-detail="completedVolunteerHours">Loading...</p></div></article>
+        </section>
+
+        <section class="panel event-editor-panel" id="event-form" aria-labelledby="event-form-title">
+          <div class="panel-header">
+            <h2 id="event-form-title">Create an Event</h2>
+          </div>
+          <form class="event-form" data-event-form novalidate>
+            <div class="form-row two-col">
+              <div class="form-group"><label for="event-title">Event title</label><input id="event-title" name="title" maxlength="200" required /></div>
+              <div class="form-group"><label for="event-category">Category</label><input id="event-category" name="category" maxlength="50" required /></div>
+              <div class="form-group"><label for="event-location">Venue or location</label><input id="event-location" name="location" maxlength="200" required /></div>
+              <div class="form-group"><label for="event-city">City</label><input id="event-city" name="city" maxlength="50" required /></div>
+              <div class="form-group"><label for="event-start">Start date and time</label><input id="event-start" name="startDateTime" type="datetime-local" required /></div>
+              <div class="form-group"><label for="event-end">End date and time</label><input id="event-end" name="endDateTime" type="datetime-local" required /></div>
+              <div class="form-group"><label for="event-capacity">Volunteer capacity</label><input id="event-capacity" name="totalCapacity" type="number" min="1" step="1" required /></div>
+            </div>
+            <div class="form-group"><label for="event-description">Description</label><textarea id="event-description" name="description" rows="4" maxlength="2000"></textarea></div>
+            <fieldset class="form-group event-skill-fieldset"><legend>Skills needed (optional)</legend><p class="form-hint">Choose skills that will help volunteers understand this opportunity.</p><div class="event-skill-options" data-event-skill-options><p>Loading skills...</p></div></fieldset>
+            <p class="form-success" data-event-form-message role="status" aria-live="polite"></p>
+            <div class="event-form-actions">
+              <button class="btn btn-primary btn-small" type="submit" data-event-submit>Create Event</button>
+              <button class="btn btn-secondary btn-small" type="button" data-event-cancel-edit hidden>Stop Editing</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="ngo-layout">
+          <section class="panel upcoming-panel" aria-labelledby="active-events-title">
+            <div class="panel-header">
+              <h2 id="active-events-title">Manage Events</h2>
+              <a href="#event-form" class="text-link" data-open-event-form>Create another</a>
+            </div>
+
+            <p class="form-success" data-ngo-events-message role="status" aria-live="polite"></p>
+            <div class="event-list" data-ngo-events></div>
+          </section>
+
+          <aside class="panel quick-actions-panel" aria-labelledby="quick-actions-title">
+            <div class="panel-header">
+              <h2 id="quick-actions-title">Quick Actions</h2>
+            </div>
+
+            <div class="quick-action-grid">
+              <a class="quick-action" href="#event-form" data-open-event-form>Create New Event</a>
+              <a class="quick-action" href="#applications-title">View Applications</a>
+            </div>
+          </aside>
+        </section>
+
+        <section class="panel" id="attendance-panel" aria-labelledby="attendance-title" data-attendance-panel>
+          <div class="panel-header"><h2 id="attendance-title">Attendance and Service Outcomes</h2></div>
+          <p class="form-hint">Select an event to mark approved volunteers Present or Absent. After the event ends, record completed hours.</p>
+          <div class="form-group"><label for="attendance-event-select">Your events</label><select id="attendance-event-select" data-attendance-event-select><option value="">Loading events...</option></select></div>
+          <p class="form-success" data-attendance-message role="status" aria-live="polite"></p>
+          <p data-attendance-summary></p>
+          <div class="table-wrap"><table class="applications-table"><thead><tr><th>Volunteer</th><th>Application</th><th>Attendance</th><th>Service outcome</th></tr></thead><tbody data-attendance-rows><tr><td colspan="4">Select an event to load attendance.</td></tr></tbody></table></div>
+        </section>
+        <section class="panel" id="reviews-panel" aria-labelledby="reviews-title" data-ngo-reviews-panel>
+          <div class="panel-header"><h2 id="reviews-title">Event Ratings and Feedback</h2></div>
+          <div class="form-group"><label for="review-event-select">Your events</label><select id="review-event-select" data-review-event-select><option value="">Loading events...</option></select></div>
+          <p class="form-success" data-ngo-reviews-message role="status" aria-live="polite"></p>
+          <p data-review-summary></p>
+          <div class="feedback-list" data-ngo-review-list><p>Select an event to view its reviews.</p></div>
+        </section>
+        <section class="panel impact-panel" id="ngo-impact" data-impact-dashboard="ngo" aria-labelledby="ngo-impact-title">
+          <div class="panel-header"><div><h2 id="ngo-impact-title">Impact analytics</h2><p class="form-hint">A date-filtered view of your events and recorded outcomes.</p></div><button class="btn btn-secondary btn-small" type="button" data-impact-export>Export CSV</button></div>
+          <form class="impact-filters" data-impact-filters><label>From <input type="date" name="startDate"></label><label>Through <input type="date" name="endDate"></label><button class="btn btn-primary btn-small" type="submit">Apply</button></form>
+          <p class="form-success" data-impact-message role="status" aria-live="polite">Loading impact data…</p>
+          <div class="impact-stats" data-impact-stats></div>
+          <h3>Events by category</h3><div class="impact-bars" data-impact-categories></div>
+        </section>
+
+        <section class="lower-grid">
+          <section class="panel applications-panel" aria-labelledby="applications-title">
+            <div class="panel-header">
+              <h2 id="applications-title">Recent Volunteer Applications</h2>
+            </div>
+
+            <div class="table-wrap">
+              <table class="applications-table">
+                <thead>
+                  <tr>
+                    <th>Volunteer</th>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody data-ngo-applications>
+                  <tr><td colspan="5">Loading applications...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <aside class="panel activity-panel" aria-labelledby="activity-title">
+            <div class="panel-header">
+              <h2 id="activity-title">Recent Activity</h2>
+            </div>
+
+            <ul class="activity-list" data-ngo-activity><li>Loading activity...</li></ul>
+          </aside>
+        </section>
+        <section class="panel" aria-labelledby="notifications-title">
+          <div class="panel-header"><h2 id="notifications-title">Notifications</h2></div>
+          <ul class="activity-list" data-notification-list><li>Loading notifications...</li></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/event-skills.js"></script>
+    <script src="js/attendance.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/impact.js"></script>
+  </body>
+</html>
+
+

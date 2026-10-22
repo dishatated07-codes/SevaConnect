@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | Volunteer Dashboard</title>
+    <meta
+      name="description"
+      content="Volunteer dashboard for SevaConnect."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="dashboard-page volunteer-dashboard-page">
+    <div class="dashboard-shell">
+      <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="false">
+        â˜°
+      </button>
+
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <div class="sidebar-brand">
+          <a href="index.html" class="logo" aria-label="SevaConnect home">
+            <span class="logo-mark">S</span>
+            <span>SevaConnect</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main dashboard navigation">
+          <ul>
+            <li><a href="#dashboard-main" class="nav-item active">Dashboard</a></li>
+            <li><a href="volunteer-profile.html" class="nav-item">My Profile &amp; Skills</a></li>
+            <li><a href="events.html" class="nav-item">Browse Events</a></li>
+            <li><a href="#activity-title" class="nav-item">My Applications</a></li>
+            <li><a href="#feedback-title" class="nav-item">My Feedback</a></li>
+            <li><a href="#volunteer-impact" class="nav-item">Impact Reports</a></li>
+            <li><a href="#notifications-title" class="nav-item">Notifications</a></li>
+            <li><a href="login.html" class="nav-item" data-logout>Logout</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main" id="dashboard-main">
+        <header class="dashboard-header">
+          <div>
+            <p class="eyebrow eyebrow-dashboard">Volunteer Portal</p>
+            <h1>Welcome back, <span data-user-name>your profile</span>!</h1>
+            <p class="welcome-subtitle">Your next opportunity to make a meaningful difference starts here.</p>
+            <p class="profile-summary">Email: <span data-user-email>Loading...</span> · City: <span data-user-city>Loading...</span> · Availability: <span data-user-availability>Loading...</span></p>
+          </div>
+          <a href="events.html" class="btn btn-primary btn-small">Find Events</a>
+        </header>
+
+        <section class="stats-grid dashboard-stats" aria-label="Volunteer statistics">
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-green" data-dashboard-stat="appliedEvents">—</div>
+            <div>
+              <h3>Applied Events</h3>
+              <p data-dashboard-detail="appliedEvents">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-blue" data-dashboard-stat="approvedApplications">—</div>
+            <div>
+              <h3>Approved Applications</h3>
+              <p data-dashboard-detail="approvedApplications">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-orange" data-dashboard-stat="upcomingEvents">—</div>
+            <div>
+              <h3>Upcoming Events</h3>
+              <p data-dashboard-detail="upcomingEvents">Loading...</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-icon-purple" data-dashboard-stat="volunteerHours">—</div>
+            <div>
+              <h3>Volunteer Hours</h3>
+              <p data-dashboard-detail="volunteerHours">Loading...</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <section class="panel upcoming-panel" aria-labelledby="upcoming-title">
+            <div class="panel-header">
+              <h2 id="upcoming-title">Upcoming Opportunities</h2>
+              <a href="events.html" class="text-link">View all</a>
+            </div>
+
+            <p class="form-success" data-events-message role="status" aria-live="polite"></p>
+            <div class="event-list" data-event-list></div>
+          </section>
+
+          <aside class="panel activity-panel" aria-labelledby="activity-title">
+            <div class="panel-header">
+              <h2 id="activity-title">Recent Activity</h2>
+            </div>
+
+            <ul class="activity-list" data-volunteer-activity><li>Loading activity...</li></ul>
+          </aside>
+        </section>
+        <section class="panel" aria-labelledby="history-title">
+          <div class="panel-header"><h2 id="history-title">My volunteering history</h2></div>
+          <p class="profile-summary" data-history-summary>Loading your completed hours...</p>
+          <div class="table-wrap">
+            <table class="applications-table">
+              <thead><tr><th>Event</th><th>NGO</th><th>Completion</th><th>Attendance</th><th>Hours</th><th>Feedback</th></tr></thead>
+              <tbody data-volunteer-service-history><tr><td colspan="6">Loading history...</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel impact-panel" id="volunteer-impact" data-impact-dashboard="volunteer" aria-labelledby="volunteer-impact-title">
+          <div class="panel-header"><div><h2 id="volunteer-impact-title">My impact</h2><p class="form-hint">Your verified attendance and completed service.</p></div><button class="btn btn-secondary btn-small" type="button" data-impact-export>Export CSV</button></div>
+          <form class="impact-filters" data-impact-filters><label>From <input type="date" name="startDate"></label><label>Through <input type="date" name="endDate"></label><button class="btn btn-primary btn-small" type="submit">Apply</button></form>
+          <p class="form-success" data-impact-message role="status" aria-live="polite">Loading impact data…</p>
+          <div class="impact-stats" data-impact-stats></div>
+          <div class="impact-columns"><section><h3>Completed hours by month</h3><div class="impact-bars" data-impact-months></div></section><section><h3>Recent completed activities</h3><div class="impact-activities" data-impact-activities></div></section></div>
+          <h3>Attendance history</h3><div class="table-wrap"><table class="applications-table"><thead><tr><th>Event</th><th>NGO</th><th>Category</th><th>Attendance</th><th>Hours</th></tr></thead><tbody data-impact-attendance><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+        </section>
+        <section class="panel" aria-labelledby="feedback-title" id="my-feedback-panel" data-volunteer-feedback-panel>
+          <div class="panel-header"><h2 id="feedback-title">My Feedback</h2></div>
+          <p class="form-hint">Rate events you completed. You can submit one review per completed event.</p>
+          <p class="form-success" data-feedback-message role="status" aria-live="polite"></p>
+          <div class="feedback-list" data-volunteer-feedback-list><p>Loading feedback...</p></div>
+        </section>
+        <section class="panel" aria-labelledby="notifications-title">
+          <div class="panel-header"><h2 id="notifications-title">Notifications</h2></div>
+          <ul class="activity-list" data-notification-list><li>Loading notifications...</li></ul>
+        </section>
+      </main>
+    </div>
+    <dialog class="application-dialog" data-application-dialog aria-labelledby="application-title">
+      <form data-application-form>
+        <div class="panel-header"><h2 id="application-title">Volunteer Application</h2><button type="button" class="btn btn-secondary btn-small" data-close-application>Close</button></div>
+        <p data-application-event></p>
+        <p data-application-profile>Loading your volunteer profile...</p>
+        <div class="form-group"><label for="application-notes">Message to the organization (optional)</label><textarea id="application-notes" name="notes" rows="4" maxlength="500" placeholder="Share relevant experience or anything the organization should know."></textarea></div>
+        <div class="form-group"><label><input type="checkbox" name="scheduleConfirmed" required /> I have reviewed the event date and can attend.</label></div>
+        <p class="form-success" data-application-message role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary" data-submit-application>Submit application</button>
+      </form>
+    </dialog>
+
+    <dialog class="application-dialog event-details-dialog" data-event-details-dialog aria-labelledby="event-details-title">
+      <div class="panel-header"><h2 id="event-details-title" data-event-details-title>Event details</h2><button type="button" class="btn btn-secondary btn-small" data-close-event-details>Close</button></div>
+      <p class="event-ngo" data-event-details-ngo></p><p data-event-details-category></p><p data-event-details-description></p>
+      <ul class="event-details" data-event-details-meta></ul><p data-event-details-capacity></p><p data-event-details-status></p>
+      <p class="skill-match" data-event-details-skills></p>
+    </dialog>
+    <script src="js/script.js"></script>
+    <script src="js/event-skills.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/impact.js"></script>
+  </body>
+</html>
+
+
+
+

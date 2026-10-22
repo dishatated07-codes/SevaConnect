@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | My Volunteer Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="dashboard-page volunteer-profile-page" data-volunteer-profile-page>
+    <div class="dashboard-shell">
+      <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <div class="sidebar-brand"><a href="index.html" class="logo"><span class="logo-mark">S</span><span>SevaConnect</span></a></div>
+        <nav class="sidebar-nav" aria-label="Main dashboard navigation"><ul>
+          <li><a href="volunteer-dashboard.html" class="nav-item">Dashboard</a></li>
+          <li><a href="volunteer-profile.html" class="nav-item active" aria-current="page">My Profile &amp; Skills</a></li>
+          <li><a href="events.html" class="nav-item">Browse Events</a></li>
+          <li><a href="volunteer-dashboard.html#activity-title" class="nav-item">My Applications</a></li>
+          <li><a href="volunteer-dashboard.html#notifications-title" class="nav-item">Notifications</a></li>
+          <li><a href="login.html" class="nav-item" data-logout>Logout</a></li>
+        </ul></nav>
+      </aside>
+      <main class="dashboard-main" id="profile-main">
+        <header class="dashboard-header"><div><p class="eyebrow eyebrow-dashboard">Volunteer Portal</p><h1>My Profile &amp; Skills</h1><p class="welcome-subtitle">Keep your volunteer information and experience up to date.</p></div></header>
+        <p class="form-success" data-profile-message role="status" aria-live="polite">Loading your profile...</p>
+        <section class="panel profile-editor-panel" aria-labelledby="profile-title">
+          <div class="panel-header"><h2 id="profile-title">Personal information</h2><button type="button" class="btn btn-secondary btn-small" data-profile-edit>Edit Profile</button></div>
+          <form class="event-form" data-profile-form>
+            <div class="form-row two-col">
+              <div class="form-group"><label for="profile-name">Full name</label><input id="profile-name" name="fullName" maxlength="100" required disabled /></div>
+              <div class="form-group"><label for="profile-email">Account email (cannot be changed here)</label><input id="profile-email" name="email" type="email" readonly /></div>
+              <div class="form-group"><label for="profile-phone">Phone number</label><input id="profile-phone" name="phoneNumber" type="tel" maxlength="20" required disabled /></div>
+              <div class="form-group"><label for="profile-city">City</label><input id="profile-city" name="city" maxlength="50" required disabled /></div>
+              <div class="form-group"><label for="profile-availability">Availability</label><select id="profile-availability" name="availability" required disabled><option value="">Choose availability</option><option value="Weekdays">Weekdays</option><option value="Weekends">Weekends</option><option value="Both">Both</option></select></div>
+            </div>
+            <div class="form-group"><label for="profile-bio">Bio</label><textarea id="profile-bio" name="bio" rows="4" maxlength="1000" disabled></textarea></div>
+            <p class="form-hint">Profile photo is optional. Photo upload is not available in this project yet.</p>
+            <div class="event-form-actions"><button class="btn btn-primary btn-small" type="submit" data-profile-save hidden>Save Changes</button><button class="btn btn-secondary btn-small" type="button" data-profile-cancel hidden>Cancel</button></div>
+          </form>
+        </section>
+        <section class="panel" aria-labelledby="skills-title">
+          <div class="panel-header"><div><h2 id="skills-title">My skills</h2><p class="form-hint">Choose a proficiency level for each skill. Inactive skills already on your profile can be removed.</p></div></div>
+          <p class="form-success" data-skills-message role="status" aria-live="polite">Loading available skills...</p>
+          <form data-skills-form><div class="profile-skills-grid" data-profile-skills></div><div class="event-form-actions"><button class="btn btn-primary btn-small" type="submit" data-skills-save>Save Skills</button></div></form>
+        </section>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

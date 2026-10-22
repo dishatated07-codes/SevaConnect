@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | Events</title>
+    <meta name="description" content="Browse upcoming volunteer events with SevaConnect." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="SevaConnect home">
+          <span class="logo-mark">S</span>
+          <span>SevaConnect</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="events.html" aria-current="page">Events</a></li>
+          <li><a href="login.html?role=Volunteer">Sign in</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <p class="eyebrow eyebrow-dashboard">Volunteer Opportunities</p>
+          <h1>Upcoming Events</h1>
+          <p class="welcome-subtitle">Explore open events from organizations in your community.</p>
+        </div>
+        <a href="login.html?role=Volunteer" class="btn btn-secondary btn-small">Sign in to apply</a>
+      </header>
+
+      <section class="panel" aria-label="Open volunteer events">
+        <form class="event-filter-form" data-event-filters>
+          <div class="event-search-row">
+            <div class="form-group event-search-field">
+              <label for="event-search">Search events</label>
+              <input id="event-search" name="search" type="search" maxlength="120" placeholder="Title, description, category, city, or location" />
+            </div>
+            <button class="btn btn-secondary btn-small" type="button" data-clear-search>Clear search</button>
+          </div>
+          <div class="event-filter-grid">
+            <div class="form-group"><label for="event-category-filter">Category</label><select id="event-category-filter" name="category"><option value="">All categories</option></select></div>
+            <div class="form-group"><label for="event-city-filter">City</label><select id="event-city-filter" name="city"><option value="">All cities</option></select></div>
+            <div class="form-group"><label for="event-start-date">From date</label><input id="event-start-date" name="startDate" type="date" /></div>
+            <div class="form-group"><label for="event-end-date">Through date</label><input id="event-end-date" name="endDate" type="date" /></div>
+            <div class="form-group"><label for="event-availability">Availability</label><select id="event-availability" name="availability"><option value="all">All open events</option><option value="available">Has available places</option></select></div>
+            <div class="form-group"><label for="event-sort">Sort by</label><select id="event-sort" name="sort"><option value="soonest">Soonest upcoming</option><option value="latest">Latest date</option><option value="title">Event title A–Z</option></select></div>
+          </div>
+          <div class="event-filter-actions">
+            <label class="check-option"><input type="checkbox" name="notApplied" value="true" data-not-applied-filter /><span>Events I have not applied to</span></label>
+            <span class="form-hint" data-not-applied-hint></span>
+            <button class="btn btn-secondary btn-small" type="reset" data-reset-event-filters>Reset filters</button>
+          </div>
+        </form>
+        <p class="form-success" data-events-message role="status" aria-live="polite"></p>
+        <div class="event-list" data-event-list>
+          <p>Loading events...</p>
+        </div>
+        <button class="btn btn-secondary" type="button" data-load-more-events hidden>Load more events</button>
+      </section>
+    </main>
+    <dialog class="application-dialog event-details-dialog" data-event-details-dialog aria-labelledby="event-details-title">
+      <div class="panel-header"><h2 id="event-details-title" data-event-details-title>Event details</h2><button type="button" class="btn btn-secondary btn-small" data-close-event-details>Close</button></div>
+      <p class="event-ngo" data-event-details-ngo></p>
+      <p data-event-details-category></p>
+      <p data-event-details-description></p>
+      <ul class="event-details" data-event-details-meta></ul>
+      <p data-event-details-capacity></p>
+      <p data-event-details-status></p>
+      <p class="skill-match" data-event-details-skills></p>
+    </dialog>
+    <dialog class="application-dialog" data-application-dialog aria-labelledby="application-title">
+      <form data-application-form>
+        <div class="panel-header"><h2 id="application-title">Volunteer Application</h2><button type="button" class="btn btn-secondary btn-small" data-close-application>Close</button></div>
+        <p data-application-event></p>
+        <p data-application-profile>Loading your volunteer profile...</p>
+        <div class="form-group"><label for="application-notes">Message to the organization (optional)</label><textarea id="application-notes" name="notes" rows="4" maxlength="500" placeholder="Share relevant experience or anything the organization should know."></textarea></div>
+        <div class="form-group"><label><input type="checkbox" name="scheduleConfirmed" required /> I have reviewed the event date and can attend.</label></div>
+        <p class="form-success" data-application-message role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary" data-submit-application>Submit application</button>
+      </form>
+    </dialog>
+    <script src="js/script.js"></script>
+    <script src="js/event-skills.js"></script>
+  </body>
+</html>

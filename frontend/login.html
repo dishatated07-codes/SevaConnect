@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | Sign In</title>
+    <meta
+      name="description"
+      content="SevaConnect sign in for volunteers and NGOs."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="login-page">
+    <div class="login-shell">
+      <header class="login-brand" aria-label="SevaConnect brand">
+        <a href="index.html" class="logo" aria-label="SevaConnect home">
+          <span class="logo-mark">S</span>
+          <span>SevaConnect</span>
+        </a>
+        <p class="tagline">Connecting people with meaningful opportunities</p>
+      </header>
+
+      <main class="login-main">
+        <section class="login-card" aria-labelledby="login-title">
+          <div class="card-header">
+            <p class="eyebrow eyebrow-login">Welcome back</p>
+            <h1 id="login-title">Sign in</h1>
+          </div>
+
+          <form class="login-form" novalidate>
+            <div class="form-group user-type-group" role="radiogroup" aria-label="Select user type">
+              <label class="user-type-option">
+              <input type="radio" name="userType" value="Volunteer" checked />
+                <span>Volunteer</span>
+              </label>
+              <label class="user-type-option">
+                <input type="radio" name="userType" value="NGO" />
+                <span>NGO</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-error" />
+              <p id="email-error" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="password">Password</label>
+              </div>
+              <div class="password-field">
+                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" aria-describedby="password-error" />
+                <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+              </div>
+              <p id="password-error" class="error-message" aria-live="polite"></p>
+            </div>
+
+            <div class="form-options">
+              <label class="remember-me" for="rememberMe">
+                <input id="rememberMe" type="checkbox" name="rememberMe" />
+                <span>Remember me</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary login-button">Sign In</button>
+
+            <p class="form-footer">
+              Don't have an account?
+              <a href="register.html" class="text-link">Create an account</a>
+            </p>
+
+            <p id="form-success" class="form-success" aria-live="polite"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

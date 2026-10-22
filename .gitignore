@@ -1,0 +1,27 @@
+﻿# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+
+# Installed dependencies
+node_modules/
+
+# Logs and temporary files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.vscode/
+.idea/

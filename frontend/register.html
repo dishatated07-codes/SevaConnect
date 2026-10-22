@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SevaConnect | Register</title>
+    <meta name="description" content="Create a volunteer or NGO account with SevaConnect." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="login-page register-page">
+    <div class="login-shell register-shell">
+      <header class="login-brand" aria-label="SevaConnect brand">
+        <a href="index.html" class="logo" aria-label="SevaConnect home"><span class="logo-mark">S</span><span>SevaConnect</span></a>
+        <p class="tagline">Connecting people with meaningful opportunities</p>
+      </header>
+      <main class="login-main">
+        <section class="login-card register-card" aria-labelledby="register-title">
+          <div class="card-header"><p class="eyebrow eyebrow-login">Join the community</p><h1 id="register-title">Create your account</h1></div>
+          <form class="register-form" novalidate>
+            <fieldset class="form-group user-type-group">
+              <legend>Register as</legend>
+              <label class="user-type-option"><input type="radio" name="registrationRole" value="Volunteer" checked /><span>Volunteer</span></label>
+              <label class="user-type-option"><input type="radio" name="registrationRole" value="NGO" /><span>NGO</span></label>
+            </fieldset>
+
+            <section data-registration-fields="Volunteer">
+              <div class="form-group"><label for="fullName">Full name *</label><input id="fullName" name="fullName" maxlength="100" autocomplete="name" /><p id="fullName-error" class="error-message" aria-live="polite"></p></div>
+            </section>
+
+            <section data-registration-fields="NGO" hidden>
+              <div class="form-group"><label for="organizationName">Organization name *</label><input id="organizationName" name="organizationName" maxlength="150" autocomplete="organization" /><p id="organizationName-error" class="error-message" aria-live="polite"></p></div>
+              <div class="form-group"><label for="contactPerson">Contact person's name</label><input id="contactPerson" name="contactPerson" maxlength="100" autocomplete="name" /></div>
+            </section>
+
+            <div class="form-row two-col">
+              <div class="form-group"><label for="email">Email address *</label><input id="email" name="email" type="email" maxlength="100" autocomplete="email" /><p id="email-error" class="error-message" aria-live="polite"></p></div>
+              <div class="form-group"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" /><p id="phone-error" class="error-message" aria-live="polite"></p></div>
+            </div>
+            <div class="form-row two-col">
+              <div class="form-group"><label for="password">Password *</label><input id="password" name="password" type="password" minlength="8" maxlength="72" autocomplete="new-password" /><p id="password-error" class="error-message" aria-live="polite"></p></div>
+              <div class="form-group"><label for="confirmPassword">Confirm password *</label><input id="confirmPassword" name="confirmPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password" /><p id="confirmPassword-error" class="error-message" aria-live="polite"></p></div>
+            </div>
+            <div class="form-group"><label for="city">City *</label><input id="city" name="city" maxlength="50" autocomplete="address-level2" /><p id="city-error" class="error-message" aria-live="polite"></p></div>
+
+            <section data-registration-fields="Volunteer">
+              <div class="form-group">
+                <fieldset class="skill-options"><legend>Skills *</legend>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Teaching" /><span>Teaching</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Event Management" /><span>Event Management</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Fundraising" /><span>Fundraising</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Social Media" /><span>Social Media</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Content Writing" /><span>Content Writing</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Healthcare" /><span>Healthcare</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Photography" /><span>Photography</span></label>
+                  <label class="check-option"><input type="checkbox" name="skills" value="Other" /><span>Other</span></label>
+                </fieldset>
+                <p id="skills-error" class="error-message" aria-live="polite"></p>
+              </div>
+              <fieldset class="form-group availability-options"><legend>Availability *</legend>
+                <label class="radio-option"><input type="radio" name="availability" value="Weekdays" /><span>Weekdays</span></label>
+                <label class="radio-option"><input type="radio" name="availability" value="Weekends" /><span>Weekends</span></label>
+                <label class="radio-option"><input type="radio" name="availability" value="Both" /><span>Both</span></label>
+                <p id="availability-error" class="error-message" aria-live="polite"></p>
+              </fieldset>
+            </section>
+
+            <section data-registration-fields="NGO" hidden>
+              <div class="form-group"><label for="address">Organization address</label><input id="address" name="address" maxlength="200" autocomplete="street-address" /></div>
+              <div class="form-group"><label for="description">About the organization</label><textarea id="description" name="description" rows="4" maxlength="1000"></textarea></div>
+            </section>
+
+            <p id="register-success" class="form-success" aria-live="polite" role="status"></p>
+            <button type="submit" class="btn btn-primary login-button">Create Volunteer Account</button>
+            <p class="form-footer">Already registered? <a href="login.html" class="text-link">Sign in</a></p>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
